@@ -158,7 +158,7 @@ def send_mail():
         msg = readmsg(q['email'])
         msg.body = q['email']+" is tried to connect you."    
         mail.send(msg)       
-        return 'Mail sent!'
+        return jsonify('Mail sent!')
 
 
 ##############################################################################################################################

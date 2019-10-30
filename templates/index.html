@@ -39,7 +39,7 @@
         <h2>BIS ടാഗ്‌സെറ്റ്</h2>
         <ul>
           <li>
-            <button type="" class="btn" data-toggle="modal" data-target="#myModal">
+            <button type="" class="btn" data-toggle="modal" data-target="#myModal" style="color: teal;">
                 ടാഗ് സെറ്റ് കാണുക
             </button>
           </li>
@@ -57,6 +57,7 @@
       <div class="form-group">
             <label for="comment">മലയാള വാചകം :</label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
+            <br>
             <button id="btn" type="button" class="btn btn-info">ടാഗ് ചെയ്യുക</button>
         </div> 
         <div id='spl' style="background-color: aquamarine;padding: 2%; display: none;">
@@ -115,9 +116,9 @@
                   <p class="mt-2"><i>ബ്യൂറോ ഓഫ് ഇന്ത്യൻ സ്റ്റാൻ‌ഡേർഡ് ടാഗ്‌സെറ്റ് ഉപയോഗിച്ചു മലയാള ഭാഷയ്ക്കുള്ള പാർട്ട് ഓഫ് സ്പീച് ടാഗർ</i></p>
                 </div>
                 <div class="col-sm-4">
-                    <h5>Developed By</h5>
-                    <p><a href="https://www.linkedin.com/in/anoopacademia/">Anoop V S</a></p>
-                    <p><a href="https://www.linkedin.com/in/akhilkishorek/">Akhil Kishore</a></p>
+                    <h5>വികസിപ്പിച്ചെടുത്തത്</h5>
+                    <p><a href="https://www.linkedin.com/in/anoopacademia/">അനൂപ് വി എസ്</a></p>
+                    <p><a href="https://www.linkedin.com/in/akhilkishorek/">അഖിൽ കിഷോർ </a></p>
                   </div>
                 <div class="col-sm-4">
                       <h5>ഞങ്ങളെ സമീപിക്കുക</h5>
@@ -163,13 +164,13 @@ jQuery(document).ready(function ($) {
     var request = new XMLHttpRequest()
     search_query = 'no';
     search_query = { data : $('#comment').val() }; 
-    if(search_query['data'] == ''){
-      alert('null data');
+    if(search_query['data'].trim() == ''){
+      alert('ദയവായി താങ്കളുടെ വാചകം നൽകുക');
     }
     else{
       search_query = JSON.stringify(search_query);
 
-      alert("ഡാറ്റ ടാഗു ചെയ്യുന്നു...");
+      alert("താങ്കളുടെ വാചകം ടാഗ് ചെയ്യപ്പെട്ടിട്ടുണ്ട്");
       request.open('POST', '/generateTags', true)
       request.onload = function () {
           var data = JSON.parse(this.response);
@@ -198,8 +199,8 @@ jQuery(document).ready(function ($) {
             alert("contact admin");
         }
         else{
-
-           alert('not working');
+          document.getElementById("sendMail").disabled = true; 
+          alert('മെയിൽ അയച്ചു');
 
         }
     }
