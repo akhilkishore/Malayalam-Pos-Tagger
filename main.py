@@ -116,6 +116,8 @@ def login():
     print("called")
     response = request.data
     #response = response.decode('ascii')
+    print(response)
+    print(type(response))
     response = json.loads(response)
     print(response)
     text = response['data'].replace("/",'')
