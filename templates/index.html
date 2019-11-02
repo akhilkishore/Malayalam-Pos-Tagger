@@ -56,7 +56,7 @@
       <h5>നിങ്ങളുടെ വാചകം ഇവിടെ നൽകുക ..</h5>
       <div class="form-group">
             <label for="comment">മലയാള വാചകം :</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <textarea id='textHere' class="form-control" rows="5" id="comment"></textarea>
             <br>
             <button id="btn" type="button" class="btn btn-info">ടാഗ് ചെയ്യുക</button>
         </div> 
@@ -162,10 +162,11 @@ jQuery(document).ready(function ($) {
 
   $('#btn').click(function (){
     var request = new XMLHttpRequest()
-    search_query = 'no';
+    search_query =  { data : 'no' };
     search_query = { data : $('#comment').val() }; 
     if(search_query['data'].trim() == ''){
       alert('ദയവായി താങ്കളുടെ വാചകം നൽകുക');
+
     }
     else{
       search_query = JSON.stringify(search_query);

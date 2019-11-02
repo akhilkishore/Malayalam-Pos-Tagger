@@ -13,7 +13,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'akhil.mi3@iiitmk.ac.in',
-	MAIL_PASSWORD = 'Highasme.13896'
+	MAIL_PASSWORD = ''
 	)
 mail = Mail(app)
 
